@@ -9,8 +9,9 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q66zrl2.mongodb.net/?retryWrites=true&w=majority`;
-const url = "mongodb://localhost:27017";
+const url = process.env.DATABASE_URI;
+// const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q66zrl2.mongodb.net/?retryWrites=true&w=majority`;
+// const url = "mongodb://localhost:27017";
 const run = async () => {
   try {
     const client = await MongoClient.connect(url, {
